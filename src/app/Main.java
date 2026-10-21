@@ -19,9 +19,22 @@ public class Main {
                 System.out.println("\nIngrese las ventas de " + productos[i]);
 
                 for (int j = 0; j < turnos.length; j++) {
-                    System.out.print(turnos[j] + ": $");
-                    ventas[i][j] = teclado.nextDouble();
+                    ventas[i][j] = leerDatos(teclado, turnos[j]);
                 }
             }
         }
+        public static double leerDatos(java.util.Scanner teclado, String turno) {
+            double valor;
+
+            do {
+                System.out.print(turno + ": $");
+                valor = teclado.nextDouble();
+
+                if (valor <= 0) {
+                    System.out.println("El valor debe ser mayor que cero. Intente de nuevo.");
+                }
+
+            } while (valor <= 0);
+
+            return valor;
     }

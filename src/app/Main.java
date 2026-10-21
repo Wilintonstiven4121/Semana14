@@ -1,7 +1,7 @@
 package app;
 
 public class Main {
-    
+
 
     static final double META_VENTAS = 500_000;
 
@@ -9,5 +9,19 @@ public class Main {
         String[] productos = {"Hamburguesas", "Perros Calientes", "Papas Fritas"};
         String[] turnos = {"Almuerzo", "Tarde", "Noche", "Madrugada"};
         double[][] ventas = new double[productos.length][turnos.length];
+
+        registrarVentas(ventas, productos, turnos);
+
+        public static void registrarVentas ( double[][] ventas, String[] productos, String[]turnos){
+            java.util.Scanner teclado = new java.util.Scanner(System.in);
+
+            for (int i = 0; i < productos.length; i++) {
+                System.out.println("\nIngrese las ventas de " + productos[i]);
+
+                for (int j = 0; j < turnos.length; j++) {
+                    System.out.print(turnos[j] + ": $");
+                    ventas[i][j] = teclado.nextDouble();
+                }
+            }
+        }
     }
-}
